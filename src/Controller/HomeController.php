@@ -14,7 +14,7 @@ class HomeController extends AbstractController
     #[Route("/",name: "home")]
     public function index(RecipeRepository $rep): Response
     {
-        $data=$rep->findById(2);
+        $data=$rep->findAll();
         return $this->render('home\index.html.twig',[
             'data' => $data
         ]);
