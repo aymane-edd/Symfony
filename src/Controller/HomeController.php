@@ -10,20 +10,13 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class HomeController extends AbstractController
 {
-    
-    #[Route("/",name: "home")]
+    #[Route('/',name:'home')]
     public function index(RecipeRepository $rep): Response
     {
-        $data=$rep->findAll();
-        return $this->render('home\index.html.twig',[
+        $data = $rep->findAll();
+        return $this->render('home/index.html.twig',[
             'data' => $data
         ]);
     }
-    #[Route("/recette/{id}",name: "show")]
-    public function show(Request $request , string $id ): Response
-    {
-        return $this->render('home\show.html.twig',[
-            'id' => $id
-        ]);
-    }
+
 }
